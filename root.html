@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IIC2173 - Tarea 1 - Rodolfo Palma Otero</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style type="text/css">
+            .panel {
+                margin-top: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">IIC2173 - Tarea 1 - Rodolfo Palma Otero</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                Se muestran las últimas 10 <i>requests</i> realizadas al servidor. Se indica
+                                el verbo HTTP, la URL, la IP del cliente y la fecha y hora de la solicitud.
+                            </p>
+                        </div>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>URL</th>
+                                    <th>Remote address</th>
+                                    <th>Datetime</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{ range . }}
+                                    <tr>
+                                        <th>{{ .Method }}</th>
+                                        <th>{{ .URL }}</th>
+                                        <th>{{ .RemoteAddr }}</th>
+                                        <th>{{ .Datetime }}</th>
+                                    </tr>
+                                {{ end }}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
